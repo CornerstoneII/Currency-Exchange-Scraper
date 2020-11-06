@@ -24,7 +24,12 @@ gets
 
 puts '.....Fetching Exchange Rate'
 
-# 4. Ensure User has internet connection to run program
+scraper = ExchangeScraper.new
+scraper.make_connection
+
+if scraper.connected
+
+end
 
 # 5. Display table data for all exchange rates in other currencies if connection true
 
