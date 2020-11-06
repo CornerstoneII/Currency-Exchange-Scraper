@@ -1,4 +1,6 @@
-#!/usr/bin/env ruby
+require_relative '../lib/scraper'
+require_relative '../lib/util'
+
 def get_user_data(check_curr_key)
     input = ''
     loop do
