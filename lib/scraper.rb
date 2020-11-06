@@ -3,5 +3,12 @@ require 'nokogiri'
 require 'byebug'
 
 class ExchangeRateScraper
+    attr_reader :unparsed_page :parsed_page :connection
 
+    def initialize(url = 'https://www.iban.com/exchange-rates')
+        @url = url
+        @unparsed_page = nil
+        @parsed_page = nil
+        @connection = false
+    end
 end
