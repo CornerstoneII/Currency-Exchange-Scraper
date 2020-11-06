@@ -11,4 +11,15 @@ class ExchangeRateScraper
         @parsed_page = nil
         @connection = false
     end
+
+    def try_connecting
+        begin
+          @unparsed_page = HTTParty.get(url)
+          @parsed_page = Nokogiri::HTML(unparsed_page)
+          @connection = true
+        rescue StandardError
+          @connection = false
+        end
+          @connection
+    end
 end
