@@ -48,6 +48,5 @@ if scraper.connected
     end
 else
     puts ''
-    puts "Connection Failed... Check your internet connection"
+    puts "Connection Failed... Check internet connection"
 end
-
