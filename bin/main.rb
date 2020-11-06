@@ -28,10 +28,9 @@ scraper = ExchangeScraper.new
 scraper.make_connection
 
 if scraper.connected
-
+    puts display_exchange_table
 end
 
-# 5. Display table data for all exchange rates in other currencies if connection true
 
 # 6. Else end program
 
