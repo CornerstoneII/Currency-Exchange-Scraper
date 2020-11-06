@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'byebug'
 
 class ExchangeScraper
-    attr_reader :unparsed_page :parsed_page :connection
+    attr_reader :unparsed_page, :parsed_page, :connection
 
     def initialize(url = 'https://www.iban.com/exchange-rates')
       @url = url
@@ -36,6 +36,6 @@ class ExchangeScraper
                 exchangeRate: e.css('td')[2].text.to_f,
             }
             all_exchange << curr_item
+          end
     end
-    byebug
 end
