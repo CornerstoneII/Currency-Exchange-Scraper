@@ -9,8 +9,16 @@ def get_user_data(check_curr_sym)
     input
 end
 
-end
-# 2. Display Welcome message
+puts '
+
+WELCOME TO DAILY EURO CURRENCY EXCHANGE RATE(S)
+
+=================================================
+
+See daily euro exchange rate by simply running this program daily.
+
+press ENTER to continue.
+'
 
 # 3. Fetch Data for all exchange rates
 
@@ -21,4 +29,3 @@ end
 # 6. Else end program
 
 # 7. Display currency rate according to user input data
-
