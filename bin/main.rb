@@ -29,9 +29,9 @@ scraper.make_connection
 
 if scraper.connected
     puts display_exchange_table
+else
+    puts ''
+    puts "Connection Failed... Check your internet connection"
 end
-
-
-# 6. Else end program
 
 # 7. Display currency rate according to user input data
