@@ -1,14 +1,17 @@
+#!/usr/bin/env ruby
 require_relative '../lib/scraper'
-require_relative '../lib/util'
+require_relative '../lib/utils'
 
 def get_user_data(check_curr_key)
-    input = ''
+  input = ''
     loop do
-        input = gets.chomp.downcase
-        break if check_curr_sym.include?(input) || input.empty?
-        puts input + 'No Data Found'
+  input = gets.chomp.downcase
+     break if check_curr_key.include?(input) || input.empty?
+
+
+  puts input + 'No Data Found'
     end
-    input
+  input
 end
 
 puts '
@@ -30,16 +33,16 @@ scraper = ExchangeScraper.new
 scraper.try_connecting
 
 if scraper.connection
-    table_data = scraper.supply
-    table_list = table_data.keys
-    exchange_data = table_data['country']
+  table_data = scraper.supply
+  table_list = table_data.keys
+  exchange_data = table_data['country']
 
-    puts 'Success!'
-    puts ''
-    puts display_exchange_table(exchange_data)
-    puts''
+  puts 'Success!'
+  puts ''
+  puts display_exchange_table(exchange_data)
+  puts ''
     loop do
-        puts 'Fetch Current Rate by Currency Symbol'
+    puts 'Fetch Current Rate by Currency Symbol'
         puts 'Example: <USD, JPY, GBP, ZAR>'
         user_choice = get_user_data(curr_key)
         break if user_choice.empty?
@@ -49,6 +52,6 @@ if scraper.connection
         puts display_exchange_table(country_data, user_choice)
     end
 else
-    puts ''
-    puts "Connection Failed... Check internet connection"
+  puts ''
+  puts 'Connection Failed... Check internet connection'
 end
