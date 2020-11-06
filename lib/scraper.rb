@@ -26,5 +26,16 @@ class ExchangeScraper
     def exchangeList
       @parsed_page.css('table.table > tbody > tr')
     end
+
+    def supply
+        all_exchange = Array.new
+        exchangeList.each do |e|
+            curr_item = {
+                currency: e.css('td')[0].text.split(' ')[0].gsub('\t',''),
+                currency_name: e.css('td')[1].text,
+                exchangeRate: e.css('td')[2].text.to_f,
+            }
+            all_exchange << curr_item
+    end
     byebug
 end
