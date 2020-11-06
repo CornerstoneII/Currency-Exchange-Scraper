@@ -20,7 +20,9 @@ See daily euro exchange rate by simply running this program daily.
 press ENTER to continue.
 '
 
-# 3. Fetch Data for all exchange rates
+gets
+
+puts '.....Fetching Exchange Rate'
 
 # 4. Ensure User has internet connection to run program
 
