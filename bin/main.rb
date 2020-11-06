@@ -25,9 +25,9 @@ gets
 puts '.....Fetching Exchange Rate'
 
 scraper = ExchangeScraper.new
-scraper.make_connection
+scraper.try_connecting
 
-if scraper.connected
+if scraper.connection
     table_data = scraper.supply
     table_list = table_data.keys
     exchange_data = table_data['country']
