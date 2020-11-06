@@ -1,6 +1,14 @@
 #!/usr/bin/env ruby
+def get_user_data(check_curr_sym)
+    input = ''
+    loop do
+        input = gets.chomp.downcase
+        break if check_curr_sym.include?(input) || input.empty?
+        puts input + 'No Data Found'
+    end
+    input
+end
 
-# 1. get_user_data
 end
 # 2. Display Welcome message
 
@@ -13,3 +21,4 @@ end
 # 6. Else end program
 
 # 7. Display currency rate according to user input data
+
