@@ -1,31 +1,26 @@
 #!/usr/bin/env ruby
 require_relative '../lib/scraper'
 
-
 puts '
 
-WELCOME TO DAILY EURO CURRENCY EXCHANGE RATE(S)
+WELCOME TO SPLENDID ONLINE PRODUCT CRAWLER
 
 =================================================
 
-See daily euro exchange rate by simply running this program daily.
+FIND YOUR FAVORITE SNEAKER WITH THEIR NAME AND ASSOCIATED PRICES.
 
 press ENTER to continue.
 '
 
 gets
 
-puts '.....Fetching Exchange Rate'
+puts '.....Fetching Store Data'
 
-scraper = ExchangeScraper.new
+scraper = ShopScraper.new
+names = scraper.get_names
+prices = scraper.get_prices
 
-  table_data = scraper.supply
-  table_list = table_data.keys
-  exchange_data = table_data['country']
-
-  puts 'Success!'
-  puts ''
-  puts display_exchange_table(exchange_data)
-  puts ''
-
+(0...prices.size).each do |index|
+ puts "--- index: #{index + 1}---"
+ puts "Name: #{names[index]} | Price: #{prices[index]}"
 end

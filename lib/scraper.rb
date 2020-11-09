@@ -2,39 +2,26 @@ require 'httparty'
 require 'nokogiri'
 require 'byebug'
 
-class ExchangeScraper
-    attr_reader :parsed_page
+class ShopScraper
+    attr_accessor :parse_page
 
-    def initialize
-      url = 'https://www.iban.com/exchange-rates'
-      unparsed_page = HTTParty.get(url)
-      @parsed_page ||= Nokogiri::HTML(unparsed_page)
-    end
+   def initialize
+    doc = HTTParty.get("http://store.nike.com/us/en_us/pw/mens-nikeid-lifestyle-shoes/1k9Z7puZoneZoi3")
+    @parse_page ||= Nokogiri::HTML(doc)
+   end
 
-    def get_data
-      exchangeList.each do |e|
-        curr_item = {
-            currency: e.css('td')[0].text.split(' ')[0].gsub('\t',''),
-            currency_name: e.css('td')[1].text,
-            exchangeRate: e.css('td')[2].text.to_f,
-        }
-        all_exchange << curr_item
-      end
-    end
+   def get_names
+    item_container.css(".product-card__titles").css(".product-card__title").children.map { |name| name.text }.compact
+   end
 
-    private
+   def get_prices
+    item_container.css(".product-card__price").css("div.product-price").children.map { |price| price.text }.compact
+   end
 
-    def exchangeList
-      parsed_page.css('table.table > tbody > tr')
-    end
+private
+   def item_container
+     @parse_page.css(".product-card__info")
+   end
 
-    scraper = ExchangeScraper.new
-    currency = scraper.get_currency
-    currency_name = scraper.get_currency_name
-    exchange_rate = scraper.get_exchange_rate
 
-  (0...exchange_rate.size).each do |index|
-    puts "- - - index: #{index + 1} - - -"
-    puts "Currency: #{currency[index]} | Currency Name: #{currency_name[index]} | Exchange Rate: #{exchange_rate[index]}"
-  end
 end
