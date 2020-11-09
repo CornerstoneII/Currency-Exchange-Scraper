@@ -11,11 +11,11 @@ class ShopScraper
   end
 
   def display_names
-    item_container.css('.product-card__titles').css('.product-card__title').children.map(&:text).compact
+    item_container.css('.product-card__titles').css('.product-card__title').children.map{ |name| name.text }.compact
   end
 
   def display_prices
-    item_container.css('.product-card__price').css('div.product-price').children.map(&:text).compact
+    item_container.css('.product-card__price').css('div.product-price').children.map{ |price| price.text }.compact
   end
 
   private
