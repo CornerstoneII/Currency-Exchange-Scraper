@@ -1,0 +1,6 @@
+/.bundle
+*.bundle
+.bundle*
+.bundle
+./vendor/bundle
+/vendor
