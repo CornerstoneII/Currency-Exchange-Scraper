@@ -53,7 +53,7 @@ git clone https://github.com/CornerstoneII/Currency-Exchange-Scraper.git
 3) Run ```cd bin``` to enter file directory
 4) Be sure you're connected to the internet
 4) Run ```ruby main``` to start the Program
-5) Here on you can see the COVID-19 data for every region and country
+5) Here on you can see each product and its prices
 
 
 ## Author
