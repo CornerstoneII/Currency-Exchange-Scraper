@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Splendid-Product-Scraper
-## A CLI-Program for getting information about Currency Exchange Rates to Euro
+## A CLI-Program for getting information about Products and Prices
 
 > This project is about building a Web crawler Program that extracts Products and their Prices from a web page and presents it to a user via the Command-line interface. A user gets to see different product (Sneakers) with prices as seen on the official page of [Nike.com](http://store.nike.com/us/en_us/pw/mens-nikeid-lifestyle-shoes/1k9Z7puZoneZoi3). [Read this to learn more about what a web crawler is.](https://en.wikipedia.org/wiki/Web_crawler)
 
