@@ -14,5 +14,4 @@ describe ShopScraper do
       expect(prices.display_prices).to be_an_instance_of(Array)
     end
   end
-
 end
